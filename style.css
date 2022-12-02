@@ -27,7 +27,7 @@ body {
   display: flex;
   padding: 20px 30px;
   position: relative;
-  margin: 100% 0;
+  margin: 100px 0;
   z-index: 10;
 }
 
@@ -43,7 +43,7 @@ body {
   width: 20px;
   position: absolute;
   left: 50%;
-  bottom: 50%;
+  bottom: 100%;
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
@@ -64,7 +64,7 @@ body {
 
 /*animacija je pauzirana, a ukoliko taj div ima klasu play, onda se pokrece animacija...klasu dodajemo kroz JS*/
 .music-container.play .img-container img {
-  animation-play-state: running;
+  /*animation-play-state: running;*/
 }
 
 @keyframes rotate {
@@ -86,10 +86,58 @@ body {
 
 .action-btn {
   background-color: white;
-  border: none;
+  border: 0;
   color: #bdb9b6;
   font-size: 20px;
   cursor: pointer;
   padding: 10px;
   margin: 0 20px;
+}
+
+.action-btn-big {
+  color: #a8a5a3;
+  font-size: 30px;
+}
+
+.action-btn:focus {
+  outline: 0;
+}
+
+.music-info {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 40px);
+  padding: 10px 10px 10px 150px;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+.music-info h4 {
+  margin: 0;
+}
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.progress-container {
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 4px;
+  width: 100%;
+}
+
+.progress {
+  background-color: #ef7341;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
 }
