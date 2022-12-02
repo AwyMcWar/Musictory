@@ -64,7 +64,7 @@ body {
 
 /*animacija je pauzirana, a ukoliko taj div ima klasu play, onda se pokrece animacija...klasu dodajemo kroz JS*/
 .music-container.play .img-container img {
-  /*animation-play-state: running;*/
+  animation-play-state: running;
 }
 
 @keyframes rotate {
