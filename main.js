@@ -10,7 +10,11 @@ const title = document.getElementById("title");
 const cover = document.getElementById("cover");
 
 //Song titles
-const songs = ["rebel", "born", "sharp"];
+const songs = [
+  "Rebel Yell - Billy Idol",
+  "Born to be wild - Steppenwolf",
+  "Sharp dressed man - ZZ Top",
+];
 
 //Keep track of songs
 let songIndex = 1;
@@ -21,7 +25,7 @@ loadSong(songs[songIndex]);
 //Update song details
 function loadSong(song) {
   title.innerText = song;
-  audio.src = `/music/${song}.mp3`;
+  audio.src = `music/${song}.mp3`;
   cover.src = `images/${song}.jpg`;
 }
 
@@ -66,6 +70,22 @@ function nextSong() {
   playSong();
 }
 
+//Function for updating progress
+
+function updateProgress(e) {
+  const { duration, currentTime } = e.srcElement;
+  const progressPercent = (currentTime / duration) * 100;
+  progress.style.width = `${progressPercent}%`;
+}
+
+function setProgress(e) {
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
+  const duration = audio.duration;
+
+  audio.currentTime = (clickX / width) * duration;
+}
+
 //Event listeners
 playBtn.addEventListener("click", () => {
   const isPlaying = musicContainer.classList.contains("play");
@@ -80,3 +100,9 @@ playBtn.addEventListener("click", () => {
 //Change song events
 prevBtn.addEventListener("click", prevSong);
 nextBtn.addEventListener("click", nextSong);
+
+audio.addEventListener("timeupdate", updateProgress);
+
+progressContainer.addEventListener("click", setProgress);
+
+audio.addEventListener("ended", nextSong);
