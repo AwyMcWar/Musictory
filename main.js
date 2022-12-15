@@ -14,9 +14,9 @@ const content = document.getElementById("content");
 
 //Song titles
 const songs = [
-  "Rebel Yell - Billy Idol",
-  "Born to be wild - Steppenwolf",
-  "Sharp dressed man - ZZ Top",
+  "Rebel Yell Billy Idol",
+  "Born to Be Wild Steppenwolf",
+  "Sharp Dressed Man ZZ Top",
 ];
 
 //Keep track of songs
@@ -88,6 +88,15 @@ function setProgress(e) {
   audio.currentTime = (clickX / width) * duration;
 }
 
+// Voice Search pausing the song
+voiceSearchBtn.addEventListener("click", () => {
+  const isPlaying = musicContainer.classList.contains("play");
+
+  if (isPlaying) {
+    pauseSong();
+  }
+});
+
 //Event listeners
 playBtn.addEventListener("click", () => {
   const isPlaying = musicContainer.classList.contains("play");
@@ -123,8 +132,9 @@ recognition.onresult = function (event) {
   console.log(event);
   const current = event.results[0][0].transcript;
 
-  content.textContent = current;
-  readOutLoud(current);
+  const newCurrent = current.toLowerCase();
+  // content.textContent = newCurrent;
+  playingChoosenSong(`Playing ${newCurrent}`);
 };
 
 voiceSearchBtn.addEventListener("click", () => {
@@ -132,15 +142,18 @@ voiceSearchBtn.addEventListener("click", () => {
 });
 
 // Response
-function readOutLoud(message) {
+function playingChoosenSong(message) {
   const speech = new SpeechSynthesisUtterance();
 
   speech.text = "I didn't catch that, can you repeat?";
 
-  if (message.includes("hi")) {
-    const finalText = message;
-    speech.text = message;
-  }
+  const contains = songs.some((element) => {
+    if (message.includes(element.toLowerCase())) {
+      speech.text = `Playing ${element}`;
+      loadSong(element);
+      playSong();
+    }
+  });
 
   speech.volume = 1;
   speech.rate = 0.9;
