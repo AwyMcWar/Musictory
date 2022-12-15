@@ -149,9 +149,9 @@ body {
   z-index: 1;
 }
 
-.speech-button {
+.speech-btn {
   background-color: #4cdb62;
-  box-shadow: -2px 5px 25px 0.1px #d67a55;
+  box-shadow: -2px 5px 25px 0.1px #a2b0a3;
   border-radius: 15px;
   border-color: rgba(251, 176, 147, 0.6);
   color: #000;

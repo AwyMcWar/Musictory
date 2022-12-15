@@ -9,6 +9,9 @@ const progressContainer = document.getElementById("progress-container");
 const title = document.getElementById("title");
 const cover = document.getElementById("cover");
 
+const voiceSearchBtn = document.getElementById("speech-btn");
+const content = document.getElementById("content");
+
 //Song titles
 const songs = [
   "Rebel Yell - Billy Idol",
@@ -71,7 +74,6 @@ function nextSong() {
 }
 
 //Function for updating progress
-
 function updateProgress(e) {
   const { duration, currentTime } = e.srcElement;
   const progressPercent = (currentTime / duration) * 100;
@@ -106,3 +108,43 @@ audio.addEventListener("timeupdate", updateProgress);
 progressContainer.addEventListener("click", setProgress);
 
 audio.addEventListener("ended", nextSong);
+
+//Speech Recognition Functions
+const SpeechRecognition =
+  window.SpeechRecognition || window.webkitSpeechRecognition;
+
+const recognition = new SpeechRecognition();
+
+recognition.onstart = function () {
+  console.log("voice activated");
+};
+
+recognition.onresult = function (event) {
+  console.log(event);
+  const current = event.results[0][0].transcript;
+
+  content.textContent = current;
+  readOutLoud(current);
+};
+
+voiceSearchBtn.addEventListener("click", () => {
+  recognition.start();
+});
+
+// Response
+function readOutLoud(message) {
+  const speech = new SpeechSynthesisUtterance();
+
+  speech.text = "I didn't catch that, can you repeat?";
+
+  if (message.includes("hi")) {
+    const finalText = message;
+    speech.text = message;
+  }
+
+  speech.volume = 1;
+  speech.rate = 0.9;
+  speech.pitch = 1.1;
+
+  window.speechSynthesis.speak(speech);
+}
