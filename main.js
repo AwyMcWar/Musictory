@@ -17,6 +17,12 @@ const songs = [
   "Rebel Yell Billy Idol",
   "Born to Be Wild Steppenwolf",
   "Sharp Dressed Man ZZ Top",
+  "Angel Aerosmith",
+  "Forever and One Halloween",
+  "Wasted Time Skid Row",
+  "Fallen Angel Poison",
+  "Hotel California Eagels",
+  "Forever Stratovarius",
 ];
 
 //Keep track of songs
@@ -35,6 +41,8 @@ function loadSong(song) {
 //Play song
 function playSong() {
   musicContainer.classList.add("play");
+  cover.classList.add("play");
+
   playBtn.querySelector("i.fas").classList.remove("fa-play");
   playBtn.querySelector("i.fas").classList.add("fa-pause");
 
