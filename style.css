@@ -49,6 +49,9 @@ body {
 }
 
 .img-container img {
+  display: none;
+}
+.img-container img.play {
   width: inherit;
   height: 110px;
   border-radius: 50%;
