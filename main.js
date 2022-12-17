@@ -19,14 +19,19 @@ const songs = [
   "Sharp Dressed Man ZZ Top",
   "Angel Aerosmith",
   "Forever and One Halloween",
-  "Wasted Time Skid Row",
   "Fallen Angel Poison",
-  "Hotel California Eagels",
+  "Hotel California Eagles",
   "Forever Stratovarius",
 ];
 
 //Keep track of songs
-let songIndex = 1;
+let songIndex = 0;
+
+/*
+window.addEventListener("load", () => {
+  document.getElementById("cover").src = "images/Musictory.jpg";
+});
+*/
 
 //Initially load song info DOM
 loadSong(songs[songIndex]);
@@ -141,7 +146,7 @@ recognition.onresult = function (event) {
   const current = event.results[0][0].transcript;
 
   const newCurrent = current.toLowerCase();
-  // content.textContent = newCurrent;
+
   playingChoosenSong(`Playing ${newCurrent}`);
 };
 
@@ -158,8 +163,12 @@ function playingChoosenSong(message) {
   const contains = songs.some((element) => {
     if (message.includes(element.toLowerCase())) {
       speech.text = `Playing ${element}`;
-      loadSong(element);
-      playSong();
+
+      const delay = 3000;
+      setTimeout(function () {
+        loadSong(element);
+        playSong();
+      }, delay);
     }
   });
 
