@@ -7,7 +7,7 @@ const audio = document.getElementById("audio");
 const progress = document.getElementById("progress");
 const progressContainer = document.getElementById("progress-container");
 const title = document.getElementById("title");
-const cover = document.getElementById("cover");
+let cover = document.getElementById("cover");
 
 const voiceSearchBtn = document.getElementById("speech-btn");
 const content = document.getElementById("content");
@@ -26,12 +26,6 @@ const songs = [
 
 //Keep track of songs
 let songIndex = 0;
-
-/*
-window.addEventListener("load", () => {
-  document.getElementById("cover").src = "images/Musictory.jpg";
-});
-*/
 
 //Initially load song info DOM
 loadSong(songs[songIndex]);

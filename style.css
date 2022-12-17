@@ -5,6 +5,7 @@
 }
 
 body {
+  height: 100vh;
   margin: 0;
   margin-top: 10px;
   font-family: "Lato", sans-serif;
@@ -13,7 +14,7 @@ body {
     rgba(86, 86, 88, 1) 6%,
     rgba(226, 241, 255, 1) 91%
   );
-
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -181,6 +182,27 @@ h3 {
   margin: 0 20px;
 }
 
+@media only screen and (max-width: 1025px) {
+  h1 {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .img-container::after {
+    bottom: 170%;
+  }
+  h3 {
+    font-size: 16px;
+  }
+
+  .action-btn {
+    font-size: 12px;
+  }
+  .speech-btn {
+    font-size: 14px;
+  }
+}
+
 @media only screen and (max-width: 850px) {
   h1 {
     font-size: 16px;
@@ -214,6 +236,27 @@ h3 {
   }
   .action-btn {
     font-size: 10px;
+  }
+  .speech-btn {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  h1 {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .img-container::after {
+    bottom: 150%;
+  }
+  h3 {
+    font-size: 10px;
+  }
+
+  .action-btn {
+    font-size: 8px;
   }
   .speech-btn {
     font-size: 10px;
