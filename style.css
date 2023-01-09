@@ -19,7 +19,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* ova cetiri parametra gore ce staciti sve u sredinu i u kolonu*/
 }
 
 h1 {
@@ -80,7 +79,6 @@ h3 {
   animation-play-state: paused;
 }
 
-/*animacija je pauzirana, a ukoliko taj div ima klasu play, onda se pokrece animacija...klasu dodajemo kroz JS*/
 .music-container.play .img-container img {
   animation-play-state: running;
 }
