@@ -205,7 +205,7 @@ h3 {
 
 @media only screen and (max-width: 850px) {
   h1 {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .img-container::after {
@@ -223,42 +223,47 @@ h3 {
 }
 
 @media only screen and (max-width: 550px) {
+  .music-container {
+    padding: 10px 0;
+    width: 350px;
+    height: 80px;
+  }
   h1 {
-    font-size: 12px;
+    font-size: 30px;
     margin: 0;
   }
 
   .img-container::after {
-    bottom: 180%;
+    bottom: 100%;
   }
   h3 {
-    font-size: 10px;
+    font-size: 20px;
   }
   .action-btn {
-    font-size: 10px;
+    font-size: 20px;
   }
   .speech-btn {
-    font-size: 10px;
+    font-size: 20px;
   }
 }
 
 @media only screen and (max-width: 380px) {
   h1 {
-    font-size: 14px;
+    font-size: 20px;
     margin: 0;
   }
 
   .img-container::after {
-    bottom: 150%;
+    bottom: 100%;
   }
   h3 {
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .action-btn {
-    font-size: 8px;
+    font-size: 18px;
   }
   .speech-btn {
-    font-size: 10px;
+    font-size: 15px;
   }
 }
