@@ -15,10 +15,10 @@ const content = document.getElementById("content");
 //Song titles
 const songs = [
   "Rebel Yell Billy Idol",
-  "Born to Be Wild Steppenwolf",
-  "Sharp Dressed Man ZZ Top",
+  "Sailing Ships Whitesnake",
+  "Money Pink Floyd",
   "Angel Aerosmith",
-  "Forever and One Halloween",
+  "Blind Man Deep Purple",
   "Fallen Angel Poison",
   "Hotel California Eagles",
   "Forever Stratovarius",
